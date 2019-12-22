@@ -1,0 +1,8 @@
+code {
+  color: #ff005d;
+}
+
+.gatsby-highlight > pre {
+  background-color: #eaeaea;
+  padding: 1.5em;
+}
