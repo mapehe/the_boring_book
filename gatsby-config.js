@@ -3,6 +3,7 @@ module.exports = {
     title: `The Boring Book`,
     author: `Matias Heikkilä`,
     description: `A book about the developer everyday tools.`,
+    siteUrl: `https://mapehe.github.io/the_boring_book/`,
   },
   plugins: [
     {
@@ -71,4 +72,5 @@ module.exports = {
       },
     },
   ],
+  pathPrefix: "/the_boring_book",
 }
