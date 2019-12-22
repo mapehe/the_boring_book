@@ -1,16 +1,16 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 
-class BlogPostTemplate extends React.Component {
+class SectionTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
+    const chapter_start = post.frontmatter.section === "0"
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -26,7 +26,12 @@ class BlogPostTemplate extends React.Component {
                 marginBottom: 0,
               }}
             >
-              {post.frontmatter.title}
+              {chapter_start
+                ? "CHAPTER " +
+                  post.fields.chapter.split("_")[0] +
+                  " - " +
+                  post.fields.chapter.split("_")[1].toUpperCase()
+                : post.frontmatter.title}
             </h1>
             <p
               style={{
@@ -44,9 +49,6 @@ class BlogPostTemplate extends React.Component {
               marginBottom: rhythm(1),
             }}
           />
-          <footer>
-            <Bio />
-          </footer>
         </article>
 
         <nav>
@@ -80,7 +82,7 @@ class BlogPostTemplate extends React.Component {
   }
 }
 
-export default BlogPostTemplate
+export default SectionTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
@@ -93,10 +95,13 @@ export const pageQuery = graphql`
       id
       excerpt(pruneLength: 160)
       html
+      fields {
+        chapter
+      }
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
         description
+        section
       }
     }
   }

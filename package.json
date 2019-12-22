@@ -25,6 +25,7 @@
     "gatsby-source-filesystem": "^2.1.40",
     "gatsby-transformer-remark": "^2.6.39",
     "gatsby-transformer-sharp": "^2.3.7",
+    "pretty-quick": "^2.0.1",
     "prismjs": "^1.17.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -36,6 +37,8 @@
     "typography-theme-wordpress-2016": "^0.16.19"
   },
   "devDependencies": {
+    "husky": "^3.1.0",
+    "lint-staged": "^9.5.0",
     "prettier": "^1.19.1"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
@@ -49,6 +52,7 @@
     "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
   },
   "scripts": {
+    "prettier": "prettier --write src/**/*.{js,css}",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
@@ -56,5 +60,10 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }

@@ -1,53 +1,26 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import BookContents from "../components/book_contents"
 import { rhythm } from "../utils/typography"
 
-class BlogIndex extends React.Component {
+class BookIndex extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
-    const posts = data.allMarkdownRemark.edges
-
+    const chapters = data.allMarkdownRemark.group
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="All posts" />
-        <Bio />
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <article key={node.fields.slug}>
-              <header>
-                <h3
-                  style={{
-                    marginBottom: rhythm(1 / 4),
-                  }}
-                >
-                  <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                    {title}
-                  </Link>
-                </h3>
-                <small>{node.frontmatter.date}</small>
-              </header>
-              <section>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: node.frontmatter.description || node.excerpt,
-                  }}
-                />
-              </section>
-            </article>
-          )
-        })}
+        {BookContents(chapters)}
       </Layout>
     )
   }
 }
 
-export default BlogIndex
+export default BookIndex
 
 export const pageQuery = graphql`
   query {
@@ -56,17 +29,20 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            description
+    allMarkdownRemark(sort: { fields: [frontmatter___section], order: ASC }) {
+      group(field: fields___chapter) {
+        edges {
+          node {
+            excerpt
+            fields {
+              slug
+              chapter
+            }
+            frontmatter {
+              title
+              description
+              section
+            }
           }
         }
       }
