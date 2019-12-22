@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import BookContents from "../components/book_contents"
 
 import { rhythm, scale } from "../utils/typography"
 
@@ -61,7 +62,10 @@ class Layout extends React.Component {
         }}
       >
         <header>{header}</header>
-        <main>{children}</main>
+        <main>
+          {this.props.children}
+          <BookContents />
+        </main>
         <footer>
           © {new Date().getFullYear()}, Built with
           {` `}
