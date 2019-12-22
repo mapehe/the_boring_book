@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import BookContents from "../components/book_contents"
 
 class BookIndex extends React.Component {
   render() {
@@ -10,7 +11,8 @@ class BookIndex extends React.Component {
     const siteTitle = data.site.siteMetadata.title
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="All posts" />
+        <SEO title="Index" />
+        <BookContents />
       </Layout>
     )
   }
