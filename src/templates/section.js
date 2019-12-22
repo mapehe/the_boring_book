@@ -8,12 +8,16 @@ import { rhythm, scale } from "../utils/typography"
 class SectionTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
+    const chapterText = "Chapter " + post.fields.chapter.split("_").join(" - ")
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
-    const chapter_start = post.frontmatter.section === "0"
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout
+        location={this.props.location}
+        title={siteTitle}
+        chapter={chapterText}
+      >
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
@@ -26,12 +30,7 @@ class SectionTemplate extends React.Component {
                 marginBottom: 0,
               }}
             >
-              {chapter_start
-                ? "CHAPTER " +
-                  post.fields.chapter.split("_")[0] +
-                  " - " +
-                  post.fields.chapter.split("_")[1].toUpperCase()
-                : post.frontmatter.title}
+              {post.frontmatter.title}
             </h1>
             <p
               style={{

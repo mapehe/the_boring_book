@@ -5,7 +5,7 @@ import { rhythm, scale } from "../utils/typography"
 
 class Layout extends React.Component {
   render() {
-    const { location, title, children } = this.props
+    const { location, title, chapter, children } = this.props
     const rootPath = `${__PATH_PREFIX__}/`
     let header
 
@@ -32,23 +32,27 @@ class Layout extends React.Component {
       )
     } else {
       header = (
-        <h3
-          style={{
-            fontFamily: `Montserrat, sans-serif`,
-            marginTop: 0,
-          }}
-        >
-          <Link
+        <>
+          <h3
             style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
+              fontFamily: `Montserrat, sans-serif`,
+              marginTop: 0,
+              marginBottom: 0,
             }}
-            to={`/`}
           >
-            {title}
-          </Link>
-        </h3>
+            <Link
+              style={{
+                boxShadow: `none`,
+                textDecoration: `none`,
+                color: `inherit`,
+              }}
+              to={`/`}
+            >
+              {title}
+            </Link>
+          </h3>
+          <h4 style={{ marginTop: "0" }}>{chapter}</h4>
+        </>
       )
     }
     return (
