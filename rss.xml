@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[The Boring Book]]></title><description><![CDATA[A book about the developer everyday tools.]]></description><link>https://mapehe.github.io/the_boring_book</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 23 Dec 2019 10:24:52 GMT</lastBuildDate><item><title><![CDATA[Hello world!]]></title><description><![CDATA[When the author opens the terminal, it displays the following text: This is called the bash prompt. Exactly what the bash prompt says varies…]]></description><link>https://mapehe.github.io/the_boring_book/1_shell/hello_world/</link><guid isPermaLink="false">https://mapehe.github.io/the_boring_book/1_shell/hello_world/</guid><content:encoded>&lt;p&gt;When the author opens the terminal, it displays the following text:&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[The Boring Book]]></title><description><![CDATA[A book about the developer everyday tools.]]></description><link>https://mapehe.github.io/the_boring_book</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 23 Dec 2019 10:54:15 GMT</lastBuildDate><item><title><![CDATA[Hello world!]]></title><description><![CDATA[When the author opens the terminal, it displays the following text: This is called the bash prompt. Exactly what the bash prompt says varies…]]></description><link>https://mapehe.github.io/the_boring_book/1_shell/hello_world/</link><guid isPermaLink="false">https://mapehe.github.io/the_boring_book/1_shell/hello_world/</guid><content:encoded>&lt;p&gt;When the author opens the terminal, it displays the following text:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;matias@macbook:~$&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This is called the &lt;strong&gt;bash prompt&lt;/strong&gt;. Exactly what the bash prompt says varies slightly, but yours should look quite similar.&lt;/p&gt;
 &lt;p&gt;After typing &lt;code class=&quot;language-text&quot;&gt;echo Hello world!&lt;/code&gt;, the author’s terminal has changed to the following&lt;/p&gt;
@@ -23,4 +23,25 @@ created directory &lt;code class=&quot;language-text&quot;&gt;Test&lt;/code&gt;,
 matias@macbook:~$ &lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; Test/
 matias@macbook:~/Test$&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Notice that after &lt;code class=&quot;language-text&quot;&gt;cd&lt;/code&gt; is run, the bash prompt changes. On the last line, the working directory is &lt;code class=&quot;language-text&quot;&gt;~/Test&lt;/code&gt; i.e. directory &lt;code class=&quot;language-text&quot;&gt;Test&lt;/code&gt; in the home directory &lt;code class=&quot;language-text&quot;&gt;~&lt;/code&gt;.
-This simply indicates that the change directory command has worked as expected.&lt;/p&gt;</content:encoded></item></channel></rss>
+This simply indicates that the change directory command has worked as expected.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[So long, bash prompt]]></title><description><![CDATA[Having tried the first few commands, we won’t keep on repeating the bash prompt in the examples.
+For instance, recall the  example…]]></description><link>https://mapehe.github.io/the_boring_book/1_shell/so_long_bash_prompt/</link><guid isPermaLink="false">https://mapehe.github.io/the_boring_book/1_shell/so_long_bash_prompt/</guid><content:encoded>&lt;p&gt;Having tried the first few commands, we won’t keep on repeating the bash prompt in the examples.
+For instance, recall the &lt;code class=&quot;language-text&quot;&gt;Hello world!&lt;/code&gt; example.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;matias@macbook:~$ &lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; Hello world&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;
+Hello world&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;
+matias@macbook:~$&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Throughout the rest of the book, this would be written as follows:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token shebang important&quot;&gt;#!/bin/bash&lt;/span&gt;
+
+&lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; Hello world&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Written like this, the examples are easier to read and easier to copy-paste to the terminal.
+The first line &lt;code class=&quot;language-text&quot;&gt;#!/bin/bash&lt;/code&gt; you can read as “this is a bash example”. It won’t do anything if pasted since
+&lt;code class=&quot;language-text&quot;&gt;#&lt;/code&gt; indicates a comment.&lt;/p&gt;
+&lt;p&gt;As a second example, recall the following &lt;code class=&quot;language-text&quot;&gt;mkdir&lt;/code&gt; example.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;matias@macbook:~$ &lt;span class=&quot;token function&quot;&gt;mkdir&lt;/span&gt; Test
+matias@macbook:~$ &lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; Test/
+matias@macbook:~/Test$&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;From now on, that would be written as follows:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token shebang important&quot;&gt;#!/bin/bash&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;mkdir&lt;/span&gt; Test
+&lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; Test/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item></channel></rss>
